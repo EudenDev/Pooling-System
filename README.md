@@ -1,19 +1,21 @@
 # Pooling System
     
-Documentation for the pooling system, this includes as of May 2019:
+Documentation for the Pooling System, this includes as of May 2019:
+
 * Pooling.cs: Pool\<T>, PoolMember, ScenePools, Category(enum)
 * [IPoolable.cs (Interface)](#calling-functions-on-pool-spawn--unspawn)
 * [ParticleSystemPooling.cs](#particle-sytem-pooling)
 
-**Lastest Version: [May2019] v3.3.3
-See the Changelog at the end of this document.**
+**Version: [May2019] v3.3.3**
+**[Changelog](#changelog) at the end of this document.**
 
 Author: Andres Maldonado -- Original Author: Martin "quill18"
 Based on this code https://gist.github.com/quill18/5a7cfffae68892621267
 
 Give credit to me as well as the original author if you feel so. :)
 
-## BASIC USAGE
+BASIC USAGE
+-----------
     
 Instead of: `Instantiate(yourPrefab, position, rotation);`
 
@@ -29,7 +31,8 @@ Use: `Pooling.SendToPool(yourGameObject);`
     use Pooling.Preload() on Start.
 * Destroying an object with delay is not yet supported. e.g. Destroy(yourGO, 3f);
 
-## ADVANCED USAGE
+ADVANCED USAGE
+-----------
 ### CALLING FUNCTIONS ON POOL SPAWN / UNSPAWN
 This could be used for resetting an enemy health, or leaving something behind
 when an enemy disappears.
@@ -81,8 +84,8 @@ pooling system. Inside you can have access to some advanced methods.
 * There are some exposed functions that is better not to touch them because
     they are used for calling the interfaces and reference its parent pool.
 
-## SUPER ADVANCED USAGE
-    
+SUPER ADVANCED USAGE
+-----------    
 ### MANUALLY MANAGED POOLS
 Another way to create Pools is with Pooling.Pool:
 One big advantage is that unreferenced pools will be collected by the GC.
@@ -176,7 +179,7 @@ Since they are at the same level, just use:
 ## Particle Sytem Pooling
 This is a handy component to repool a particle system, like VFXs.
 Add the component to your particle system, read the tooltip on the component if you need help.
-This component force loop to false and stopAction to callback.
+This component forces loop to false and stopAction to callback.
 
 ## POSSIBLE ISSUES
 - Using generic version Pooling.Pool\<T> then trying Pooling.SendToPool() will not work and **will destroy your object**.
@@ -186,7 +189,8 @@ This component force loop to false and stopAction to callback.
 there is no way to dealloacate a Pool. Except with manually managed Pools.
 - An error may occur after destroying a pooled object and trying GetFromPool or PopFromPool.
 
-## CHANGELOG
+CHANGELOG
+-----------
 [May2019] v3.3.3
 + Options to turn off logs.
 
