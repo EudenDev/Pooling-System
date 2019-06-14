@@ -14,14 +14,20 @@ Pooling System, this includes as of Jun 2019:
 **Version: [Jun 2019] v3.5.0**
 **[Changelog](#changelog) at the end of this document.**
 
-Author: Andres Maldonado -- Original Author: Martin "quill18"
+Author: Andres Maldonado [eudendeew](https://github.com/eudendeew) -- Original Author: Martin [quill18](https://github.com/quill18) 
 Based on this code https://gist.github.com/quill18/5a7cfffae68892621267
 
 Give credit to me as well as the original author if you feel so. :)
 
-Documentation
+GENERAL INFO
 -----------
-Full documentation available on the [wiki section](../../wiki/Home).
+Full documentation available on the [wiki section](../../wiki/Home).  
+Unity Package download available on the [releases section](../../releases).
+
+For this and more projects to come you can send donations via PayPal <3
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GESR8D97KNWRE&source=url)
+
 
 BASIC USAGE
 -----------
