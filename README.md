@@ -14,7 +14,8 @@ Pooling System, this includes as of Jun 2019:
 **Version: [Jun 2019] v3.5.0**
 **[Changelog](#changelog) at the end of this document.**
 
-Author: Andres Maldonado [eudendeew](https://github.com/eudendeew) -- Original Author: Martin [quill18](https://github.com/quill18) 
+Author: Andres Maldonado [eudendeew](https://github.com/eudendeew)  
+Original Author: Martin [quill18](https://github.com/quill18)   
 Based on this code https://gist.github.com/quill18/5a7cfffae68892621267
 
 Give credit to me as well as the original author if you feel so. :)
