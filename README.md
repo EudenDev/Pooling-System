@@ -1,19 +1,27 @@
 # Pooling System
     
-Documentation for the Pooling System, this includes as of May 2019:
+Pooling System, this includes as of Jun 2019:
 
-* Pooling.cs: Pool\<T>, PoolMember, ScenePools, Category(enum)
-* [IPoolable.cs (Interface)](#calling-functions-on-pool-spawn--unspawn)
-* [ParticleSystemPooling.cs](#particle-sytem-pooling)
-* [SendToPoolTimer.cs]()
+* [Pooling.cs](../../wiki/Pooling): 
+    * [Pool\<Component>](../../wiki/Pooling.Pool)
+    * [PoolMember](../../wiki/Pooling.PoolMember)
+    * [ScenePools](../../wiki/Pooling.ScenePools)
+    * [Category(enum)](../../wiki/Pooling.Category)
+* [IPoolable.cs (Interface)](../../wiki/IPoolable)
+* [ParticleSystemPooling.cs](../../wiki/ParticleSystemPooling)
+* [SendToPoolTimer.cs](../../wiki/SendToPoolTimer)
 
-**Version: [May2019] v3.4.0**
+**Version: [Jun 2019] v3.5.0**
 **[Changelog](#changelog) at the end of this document.**
 
 Author: Andres Maldonado -- Original Author: Martin "quill18"
 Based on this code https://gist.github.com/quill18/5a7cfffae68892621267
 
 Give credit to me as well as the original author if you feel so. :)
+
+Documentation
+-----------
+Full documentation available on the [wiki section](../../wiki/Home).
 
 BASIC USAGE
 -----------
@@ -182,6 +190,9 @@ This is a handy component to repool a particle system, like VFXs.
 Add the component to your particle system, read the tooltip on the component if you need help.
 This component forces loop to false and stopAction to callback.
 
+## Send To Pool Timer
+Calls Pooling.SendToPool(GameObject) after a set duration. The duration is reset every new spawn.
+
 ## POSSIBLE ISSUES
 - Using generic version Pooling.Pool\<T> then trying Pooling.SendToPool() will not work and **will destroy your object**.
 
@@ -192,7 +203,10 @@ there is no way to dealloacate a Pool. Except with manually managed Pools.
 
 CHANGELOG
 -----------
-[May2019] v3.4.0
+[Jun2019] v3.5.0
++ Documentation update.
+
+[Jun2019] v3.4.0
 + Send To Pool Timer component.
 + More options in Particle System Pooling.
 
