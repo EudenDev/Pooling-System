@@ -5,8 +5,9 @@ Documentation for the Pooling System, this includes as of May 2019:
 * Pooling.cs: Pool\<T>, PoolMember, ScenePools, Category(enum)
 * [IPoolable.cs (Interface)](#calling-functions-on-pool-spawn--unspawn)
 * [ParticleSystemPooling.cs](#particle-sytem-pooling)
+* [SendToPoolTimer.cs]()
 
-**Version: [May2019] v3.3.3**
+**Version: [May2019] v3.4.0**
 **[Changelog](#changelog) at the end of this document.**
 
 Author: Andres Maldonado -- Original Author: Martin "quill18"
@@ -86,7 +87,7 @@ pooling system. Inside you can have access to some advanced methods.
 
 SUPER ADVANCED USAGE
 -----------    
-### MANUALLY MANAGED POOLS
+### GENERIC POOLS
 Another way to create Pools is with Pooling.Pool:
 One big advantage is that unreferenced pools will be collected by the GC.
 Intead of accumulating in the main dictionnary inside Pooling.
@@ -191,6 +192,10 @@ there is no way to dealloacate a Pool. Except with manually managed Pools.
 
 CHANGELOG
 -----------
+[May2019] v3.4.0
++ Send To Pool Timer component.
++ More options in Particle System Pooling.
+
 [May2019] v3.3.3
 + Options to turn off logs.
 
