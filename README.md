@@ -67,12 +67,10 @@ public class Enemy : MonoBehavior, IPoolable {
     }
 }
 ```
-**Scripts that use IPoolable should be on the root of the prefab,
-not on any child object.**
 
 ### PRELOAD OBJECTS
-Could be used in the beginning of the game to reduce the cost of creating
-a new instance of your prefab. Use:
+Can be used in the beginning of the level to reduce the cost of creating
+a new instance of your prefabs. Use:
 
 ```csharp
 Pooling.Preload(prefabReference, 8);
@@ -96,9 +94,7 @@ Pooling.GetFromPool(prefab, pos, rot, Pooling.Category.Projectiles);
 ### KNOW IF A GAME OBJECT COMES FROM A POOL
 You can use GetComponent<PoolMember>() to check if the object comes from the
 pooling system. Inside you can have access to some advanced methods.
-
-* There are some exposed functions that is better not to touch them because
-    they are used for calling the interfaces and reference its parent pool.
+More info on the wiki: [PoolMember component](../../wiki/Pooling.PoolMember)    
 
 SUPER ADVANCED USAGE
 -----------    
@@ -107,38 +103,32 @@ Another way to create Pools is with Pooling.Pool:
 One big advantage is that unreferenced pools will be collected by the GC.
 Intead of accumulating in the main dictionnary inside Pooling.
 ```csharp 
-public class ExampleClass : MonoBehaviour {
+public class ExampleClass : MonoBehaviour 
+{
+    public MyScript scriptReference;
     public GameObject prefab;
-    private Pooling.Pool myOwnPool;
     private Pooling.Pool<MyScript> objectPool;
     
     void Start() {
-        // - Basic Pool
-        myOwnPool = new Pooling.Pool(prefab)
-        // OR - Preloaded Pool
-        myOwnPool = new Pooling.Pool(prefab, 10, true)
-        // - Generic version
+        // - Preloaded Pool
+        objectPool = new Pooling.Pool<MyScript>(scriptReference, 10, true)
+        // - No preloading
         objectPool = new Pooling.Pool<MyScript>(prefab.GetComponent<MyScript>());
     }
     
-    public void SpawnVFX(Vector3 position, Quaternion rotation) {
-        myOwnPool.PopFromPool(position, rotation, true);
+    public MyScript SpawnVFX(Vector3 position, Quaternion rotation) {
+        return objectPool.PopFromPool(position, rotation, true);
     }
 }
 ```
 ### Constructors
 ```csharp
-// Basic - doesn't spawn anything.
-myOwnPool = new Pooling.Pool(prefab);
-
-// Preloaded, spawns the objects already deactivated.
-myOwnPool = new Pooling.Pool(prefab, 10, true);
-
 // Generic version.
 myScriptPool = new Pooling.Pool<MyScript>(prefab.GetComponent<MyScript>());
 ```
 
 ### Pooling.Pool Methods
+More in the wiki [Pooling.Pool](../../wiki/Pooling.Pool)
 ```csharp
 // Simple Spawn
 myOwnPool.PopFromPool(position, rotation);
@@ -155,25 +145,11 @@ myOwnPool.PushToPool(gmObj);
 // Send back and call IPoolable.OnPoolUnSpawn()
 myOwnPool.PushToPool(gmObj, true);
 
-// Send back last spawned
-myOwnPool.PushToPoolLastest();
-
-// It can also call IPoolable.OnPoolUnSpawn()
+// Push To Pool Lastest
 myOwnPool.PushToPoolLastest(true);
-```
-
-### Generic Version Extra Methods
-
-```csharp
-// Get List of active objects.
-List<T> Actives { private set; get; }
 
 // Push to pool all active objects.
 myScriptPool.PushToPoolAll(true);
-public void PushToPoolAll(bool useCallback)
-
-// Pushes back to pool the most recent object.
-public void PushToPoolLastest(bool useCallback)
 ```
 
 ### PoolMember component methods
@@ -187,10 +163,6 @@ pm.SearchInterfaces(); // It updates interfaces to be called.
 pm.OnDeployFromPool();
 pm.OnRecycleToPool();
 ```
-
-### Get Category transform
-Since they are at the same level, just use: 
-`pooledGmObject.transform.parent;`
 
 ## Particle Sytem Pooling
 This is a handy component to repool a particle system, like VFXs.
