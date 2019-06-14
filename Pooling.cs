@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
+// https://github.com/eudendeew/Pooling-System/wiki/Pooling
 // ANDRES
 
 /// <summary>
@@ -196,6 +197,8 @@ static public class Pooling
             if (inactives.Count == 0)
             {
                 // - New object needed from pool
+                if (Prefab == null && LOG_ERRORS)
+                    Debug.LogError("Original prefab has been destroyed. Cannot create instances anymore."); 
                 obj = Object.Instantiate<T>(Prefab, pos, rot);
                 obj.name = Prefab.name + "(" + (nextId++) + ")" + "::PoolMember";
                 poolMember = obj.gameObject.AddComponent<PoolMember>();
@@ -310,6 +313,7 @@ static public class Pooling
     /// Component added on runtime to objects used by the pooling system,
     /// used to identify parent Pool, and call events in IPoolable
     /// </summary>
+    [HelpURL("https://github.com/eudendeew/Pooling-System/wiki/Pooling.PoolMember")]
     public class PoolMember : MonoBehaviour
     {
         public PoolBase ParentPool { private set; get; }

@@ -5,6 +5,7 @@
 /// Send a Particle System to its pool after all particles have died.<para></para>
 /// NOTE: This forces stop action to Callback on the particle system.
 /// </summary>
+[HelpURL("https://github.com/eudendeew/Pooling-System/wiki/ParticleSystemPooling")]
 [AddComponentMenu("Effects/Particle System Pooling")]
 public class ParticleSystemPooling : MonoBehaviour, IPoolable
 {

@@ -1,7 +1,8 @@
-﻿// ANDRES
+﻿// https://github.com/eudendeew/Pooling-System/wiki/IPoolable
+// ANDRES
 
 // ** IPoolable should be used by a MonoBehaviour and preferably
-// be on the root of the prefab, not on any child game object.
+// be on the root of the prefab.
 
 /// <summary>
 /// Interface with events from the Pooling System, use this

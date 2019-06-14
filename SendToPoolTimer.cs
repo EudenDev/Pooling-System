@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 // ANDRES
 /// <summary>
-/// Calls <see cref="Pooling.SendToPool(GameObject)"/> after a give duration.
+/// Calls <see cref="Pooling.SendToPool(GameObject)"/> after a set duration.
 /// The duration is reset every new spawn.
 /// </summary>
+[HelpURL("https://github.com/eudendeew/Pooling-System/wiki/SendToPoolTimer")]
 public class SendToPoolTimer : MonoBehaviour, IPoolable
 {
     [Tooltip("Time in seconds before unspawning this object.")]
@@ -32,6 +33,8 @@ public class SendToPoolTimer : MonoBehaviour, IPoolable
     {
         // Nothing here ( ·_)·
     }
+
+    Pooling.Pool<InfoBar> barsPool;
 
     void Start()
     {
