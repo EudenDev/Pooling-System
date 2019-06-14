@@ -6,16 +6,22 @@
 /// NOTE: This forces stop action to Callback on the particle system.
 /// </summary>
 [AddComponentMenu("Effects/Particle System Pooling")]
-public class ParticleSystemPooling : MonoBehaviour
+public class ParticleSystemPooling : MonoBehaviour, IPoolable
 {
     //:: Settings
     [Header("If ParticleSystem is child of a GameObject reference it:")]
     [Tooltip("Optional reference to the parent of this Particle System")]
     public Transform parent;
-    [SerializeField]
+    [Header("Options")]
     [Tooltip("If false, loop will be set to false on Awake.\n" +
     "If true, you must manually Stop() the Particle System to send it to its pool.")]
-    private bool stopManually = false;
+    public bool stopManually;
+
+    [Tooltip("If false this component only works on instances from Pooling." +
+    " Set this to true to run on objects that are already in the scene" +
+    " or will be created with Instantiate().")]
+    public bool alwaysRun;
+    private bool usesPooling;
 
     void Awake()
     {
@@ -37,8 +43,20 @@ public class ParticleSystemPooling : MonoBehaviour
     // After all particlees have died
     public void OnParticleSystemStopped()
     {
+        if (!alwaysRun && !usesPooling)
+            return;
         // If it doesn't come from a pool it will be destroyed instead.
         Pooling.SendToPool(parent ? parent.gameObject : gameObject);
+    }
+
+    public void OnPoolSpawn()
+    {
+        usesPooling = true;
+    }
+
+    public void OnPoolUnSpawn()
+    {
+        
     }
 
     /// <summary>

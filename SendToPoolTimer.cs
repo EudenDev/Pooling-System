@@ -17,7 +17,7 @@ public class SendToPoolTimer : MonoBehaviour, IPoolable
     public bool useUnscaledTime;
 
     [Tooltip("If false this component only works on instances from Pooling." +
-        " Set this to true to run on object that are already in the scene" +
+        " Set this to true to run on objects that are already in the scene" +
         " or will be created with Instantiate().")]
     public bool alwaysRun;
     private bool usesPooling;
