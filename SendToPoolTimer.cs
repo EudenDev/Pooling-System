@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 // ANDRES
+
 /// <summary>
 /// Calls <see cref="Pooling.SendToPool(GameObject)"/> after a set duration.
 /// The duration is reset every new spawn.
@@ -34,8 +33,6 @@ public class SendToPoolTimer : MonoBehaviour, IPoolable
         // Nothing here ( ·_)·
     }
 
-    Pooling.Pool<InfoBar> barsPool;
-
     void Start()
     {
         currentTime = duration;
@@ -43,7 +40,7 @@ public class SendToPoolTimer : MonoBehaviour, IPoolable
 
     void Update()
     {
-        if (!alwaysRun && !usesPooling)       
+        if (!alwaysRun && !usesPooling)
             return;
         // -
         float dt = useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
