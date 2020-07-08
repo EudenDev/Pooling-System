@@ -24,7 +24,7 @@ public class ParticleSystemPooling : MonoBehaviour, IPoolable
     public bool alwaysRun;
     private bool usesPooling;
 
-    void Awake()
+    private void Awake()
     {
         ParticleSystem = GetComponent<ParticleSystem>();
         if (ParticleSystem == null)

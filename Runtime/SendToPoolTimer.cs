@@ -33,12 +33,12 @@ public class SendToPoolTimer : MonoBehaviour, IPoolable
         // Nothing here ( ·_)·
     }
 
-    void Start()
+    private void Start()
     {
         currentTime = duration;
     }
 
-    void Update()
+    private void Update()
     {
         if (!alwaysRun && !usesPooling)
             return;

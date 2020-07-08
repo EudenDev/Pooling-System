@@ -1,0 +1,18 @@
+{
+  "name": "com.euden.pooling-system",
+  "displayName": "Pooling System",
+  "version": "0.4.0",
+  "description": "Game Object Pooling solution with events, generic pools and documentation on GitHub.",
+  "unity": "2019.4",
+  "keywords": [
+    "Pooling",
+    "Euden",
+    "System"
+  ],
+  "author": {
+    "name": "Andres Maldonado",
+    "email": "euden@outlook.be",
+    "url": "https://github.com/euden96/"
+  },
+  "type": "tool"
+}
