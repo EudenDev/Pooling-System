@@ -1,29 +1,35 @@
 # Pooling System
-    
-Pooling System, this includes as of Jun 2019:
 
-* [Pooling.cs](../../wiki/Pooling): 
-    * [Pool\<Component>](../../wiki/Pooling.Pool)
-    * [PoolMember](../../wiki/Pooling.PoolMember)
-    * [ScenePools](../../wiki/Pooling.ScenePools)
-    * [Category(enum)](../../wiki/Pooling.Category)
-* [IPoolable.cs (Interface)](../../wiki/IPoolable)
-* [ParticleSystemPooling.cs](../../wiki/ParticleSystemPooling)
-* [SendToPoolTimer.cs](../../wiki/SendToPoolTimer)
+**Version: [Jul 2020] v0.4.0 preview**
 
-**Version: [Jun 2019] v3.5.0**
-**[Changelog](#changelog) at the end of this document.**
-
-Author: Andres Maldonado [eudendeew](https://github.com/eudendeew)  
+Author: Andres Maldonado [euden96](https://github.com/eudendeew)  
 Original Author: Martin [quill18](https://github.com/quill18)   
 Based on this code https://gist.github.com/quill18/5a7cfffae68892621267
 
 Give credit to me as well as the original author if you feel so. :)
 
+INSTALL
+-----------
+On Unity, Window/Package Manager, Add from git URL... paste this:
+`https://github.com/euden96/Pooling-System.git`
+
 GENERAL INFO
 -----------
+    
+Pooling System, this includes as of Jun 2019:
+
+* [Pooling.cs](../../wiki/Pooling):     
+    * [PoolMember](../../wiki/Pooling.PoolMember)
+    * [ScenePools](../../wiki/Pooling.ScenePools)
+    * [Category(enum)](../../wiki/Pooling.Category)
+* [PoolBase.cs]
+    * [Pool\<Component>](../../wiki/Pooling.Pool)
+* [IPoolable.cs (Interface)](../../wiki/IPoolable)
+* [ParticleSystemPooling.cs](../../wiki/ParticleSystemPooling)
+* [SendToPoolTimer.cs](../../wiki/SendToPoolTimer)
+
 Full documentation available on the [wiki section](../../wiki/Home).  
-Unity Package download available on the [releases section](../../releases).
+Old Unity Package download available on the [releases section](../../releases).
 
 For this and more projects to come you can send donations via PayPal <3
 
@@ -90,11 +96,7 @@ Pooling.GetFromPool(prefab, pos, rot, Pooling.Category.Projectiles);
 
 * Current existing categories are: Projectiles, Enemies, VisualEffects.
 * Again, objects spawned with this method are marked as **DontDestroyOnLoad**.
-
-### KNOW IF A GAME OBJECT COMES FROM A POOL
-You can use GetComponent<PoolMember>() to check if the object comes from the
-pooling system. Inside you can have access to some advanced methods.
-More info on the wiki: [PoolMember component](../../wiki/Pooling.PoolMember)    
+ 
 
 SUPER ADVANCED USAGE
 -----------    
@@ -179,83 +181,3 @@ Calls Pooling.SendToPool(GameObject) after a set duration. The duration is reset
 - When changing a scene, the objects are destroyed and their reference too, for now
 there is no way to dealloacate a Pool. Except with manually managed Pools.
 - An error may occur after destroying a pooled object and trying GetFromPool or PopFromPool.
-
-CHANGELOG
------------
-[Jun2019] v3.5.0
-+ Documentation update.
-
-[Jun2019] v3.4.0
-+ Send To Pool Timer component.
-+ More options in Particle System Pooling.
-
-[May2019] v3.3.3
-+ Options to turn off logs.
-
-[May2019] v3.3.1
-+ Particle Pooling Sytem Manually Stop option, and tooltips
-
-[May2019] v3.3.0
-+ Pooling.Pool class has been deleted, use Pooling.Pool\<Transform> instead.
-+ Text fixes
-
-[may2019] v3.2.0
-+ Pooling.Pool now uses Component instead of MonoBehaviour
-
-[apr2019] v3.1.0
-+ Pooling.Pool generic version.
-+ Some nullchecks
-+ Documentation only available here from now
-
-[apr2019] v3.0.2
-+ SendBackToPool refactored to ParticleSystemPooling.
-+ Added Summaries
-+ Null prefab reference error
-+ Text fixes
-    
-[apr2019] v3.0.0
-+ Manually managed pools
-+ Documentation added
-+ More summaries and functions
-    
-[apr2019] v2.6.2
-+ Send Back to Pool nullcheck
-+ Text Fixes
-+ PoolMember summaries and SearchInterfaces method
-
-[mar2019] v2.6.0 // ANDRES
-+ Pooling.Preload: Returns an array of gameObjects.
-+ Documentation text fixes
-
-[fev2019] v2.5.5 // ANDRES
-+ More Documentation
-- IPoolable has been simplified
-- PoolMemberhas been simplified
-
-v2.5 [fev2019] // ANDRES
-- Removed ScenePools from project
-+ Integrated Categories
-+ Addded documentation
-+ Clean Up
-
-v2.1 [jan2019] // ANDRES
-+ Removed debug logs and minor fixes
-
-v2.0 [dec2018] // ANDRES
-+ ScenePools.cs, organizes spawn object into transforms in the scene
-+ Added Pools Presets
-+ Multiple IPoolable compatibility
-
-v1.6 [aug2018] // ANDRES
-+ Mayor Fixes to all the system
-+ Commentatries and summaries
-
-v1.5 [aug2018] // ANDRES
-+ IPoolable corrections
-+ Particle System Pooling, SendBackToPool.cs
-
-v1.2 [jul2018] // ANDRES
-+ IPoolable interface compatibility
-
-v1 [jun2018] // Andres - Martin "quill18"
-+ Simple Pooling, Pool Member
