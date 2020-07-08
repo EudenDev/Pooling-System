@@ -10,8 +10,18 @@ Give credit to me as well as the original author if you feel so. :)
 
 INSTALL
 -----------
+
+**Unity 2019.4 and above**
+- In Unity, open Window/Package Manager
+- Select the **+** button at the top left
+- Select **Add package from git URL...**
+- Paste in `https://github.com/euden96/Pooling-System.git`
+
+**Unity 2019.3 and earlier**
+- In your Unity Project, open up the manifest.json file located in your Packages folder
+- below ```"dependencies": {``` add the line ```"com.euden.pooling-system": "https://github.com/euden96/Pooling-System.git",```
 On Unity, Window/Package Manager, Add from git URL... paste this:
-`https://github.com/euden96/Pooling-System.git`
+
 
 GENERAL INFO
 -----------
